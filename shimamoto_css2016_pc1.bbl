@@ -1,0 +1,37 @@
+\begin{thebibliography}{1}
+
+\bibitem{webmodel}
+Akhawe, D., Barth, A., Lam, P.~E., Mitchell, J. and Song, D.: Towards a Formal
+  Foundation of Web Security, {\em IEEE Computer Security Foundations
+  Symposium}, pp.\ 290--304 (2010).
+
+\bibitem{bcpattack}
+Y.Jia, Yue, C., Xinshu, D., Prateek, S., Jian, M. and Zhenkai, L.:
+  Man-in-the-browser-cache: Persisting HTTPS attacks via browser cache
+  poisoning, {\em Computers and Security}, Vol.~55, pp.\ 62--80 (2015).
+
+\bibitem{security_modeling_and_analysis}
+Bau, J. and Mitchell, J.~C.: Security Modeling and Analysis, {\em IEEE
+  Symposium on Security and Privacy}, Vol.~9, pp.\ 18--25 (2011).
+
+\bibitem{securing_frame_communication_in_browsers}
+Barth, A., Jackson, C. and Mitchell, J.~C.: Securing Frame Communication in
+  Browsers, {\em Communications of the ACM}, Vol.~52, pp.\ 83--91 (2009).
+
+\bibitem{specifying_and_verifying_hardware_for}
+Lie, D., Mitchell, J., Thekkath, C.~A. and Horowitz, M.: Specifying and
+  Verifying Hardware for Tamper-Resistant Software, {\em Security and Privacy},
+  pp.\ 166--177 (2003).
+
+\bibitem{sel4_formal_verification_of_an}
+Klein, G., Elphinstone, K., Heiser, G., Andronick, J., Cock, D., Derrin, P.,
+  Elkaduwe, D., Engelhardt, K., Kolanski, R., Norrish, M., Sewell, T., Tuch, H.
+  and Winwood, S.: seL4: Formal Verification of an OS Kernel, {\em Symposium on
+  Operating Systems Principles}, pp.\ 207--220 (2009).
+
+\bibitem{towards_formal_analysis_of_the}
+Shin, W., Kiyomoto, S., Fukushima, K. and Tanaka, T.: Towards Formal Analysis
+  of the Permission-Based Security Model for Android, {\em International
+  Conference on Wireless and Mobile Communications}, pp.\ 87--92 (2009).
+
+\end{thebibliography}
