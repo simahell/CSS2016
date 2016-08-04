@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{webmodel}
 Akhawe, D., Barth, A., Lam, P.~E., Mitchell, J. and Song, D.: Towards a Formal
@@ -23,6 +23,15 @@ Lie, D., Mitchell, J., Thekkath, C.~A. and Horowitz, M.: Specifying and
   Verifying Hardware for Tamper-Resistant Software, {\em Security and Privacy},
   pp.\ 166--177 (2003).
 
+\bibitem{TFFWS27}
+Bhargavan, K., Fournet, C. and Gordon, A.~D.: Verified reference
+  implementations of WS-Security protocols, {\em Lecture Notes in Computer
+  Science}, Vol.~4184, pp.\ 88--106 (2006).
+
+\bibitem{TFFWS28}
+Gordon, A.~D. and Pucella, R.: Validating a web service security abstraction by
+  typing, {\em Formal Aspects of Computing}, Vol.~17, pp.\ 277--318 (2005).
+
 \bibitem{sel4_formal_verification_of_an}
 Klein, G., Elphinstone, K., Heiser, G., Andronick, J., Cock, D., Derrin, P.,
   Elkaduwe, D., Engelhardt, K., Kolanski, R., Norrish, M., Sewell, T., Tuch, H.
@@ -33,5 +42,23 @@ Klein, G., Elphinstone, K., Heiser, G., Andronick, J., Cock, D., Derrin, P.,
 Shin, W., Kiyomoto, S., Fukushima, K. and Tanaka, T.: Towards Formal Analysis
   of the Permission-Based Security Model for Android, {\em International
   Conference on Wireless and Mobile Communications}, pp.\ 87--92 (2009).
+
+\bibitem{TFFWS17}
+Mitchell, J.~C., Mitchell, M. and Stern, U.: Automated analysis of
+  cryptographic protocols using Mur$\varphi$, {\em IEEE Symposium on Security
+  and Privacy}, pp.\ 141--151 (1997).
+
+\bibitem{TFFWS18}
+Mitchell, J.~C., Shmatikov, V. and Stern, U.: Finite-State Analysis of SSL
+  3.0., {\em USENIX Security Symposium} (1998).
+
+\bibitem{TFFWS19}
+Roscoe, A.~W.: Modelling and verifying key-exchange protocols using CSP and
+  FDR, {\em IEEE Computer Security Foundations Symposium}, pp.\ 98--107 (1995).
+
+\bibitem{TFFWS20}
+Song, D.~X.: Athena: a new efficient automatic checker for security protocol
+  analysis, {\em IEEE Computer Security Foundations Symposium}, pp.\ 192--202
+  (1999).
 
 \end{thebibliography}
