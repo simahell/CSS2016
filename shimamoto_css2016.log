@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.sjis) (TeX Live 2015/W32TeX) (preloaded format=platex 2015.5.19)  5 AUG 2016 20:50
+This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.sjis) (TeX Live 2015/W32TeX) (preloaded format=platex 2015.5.19)  6 AUG 2016 02:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4160,9 +4160,9 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9.61035> not available
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 243.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 245.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 243.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 245.
  [4]
 File: model_archi.eps Graphic file (type eps)
  <model_archi.eps>
@@ -4170,12 +4170,6 @@ File: model_alloy.eps Graphic file (type eps)
  <model_alloy.eps> [5]
 File: case1.eps Graphic file (type eps)
  <case1.eps> [6]
-
-LaTeX Warning: Citation `rfc6797' on page 7 undefined on input line 430.
-
-
-LaTeX Warning: Citation `rfc7469' on page 7 undefined on input line 430.
-
 (./shimamoto_css2016.bbl
 LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 1.
 LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <8.8711> not available
@@ -4185,12 +4179,32 @@ LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <8.8711> not available
 LaTeX Font Warning: Font shape `JY1/gt/m/it' undefined
 (Font)              using `JY1/gt/m/n' instead on input line 5.
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
+\OT1/cmr/m/n/8.8711 Strict Trans-port Se-cu-rity (HSTS), \OT1/cmr/m/it/8.8711 R
+e-quest for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--68
+\OT1/cmr/m/it/8.8711 Com-ments\OT1/cmr/m/n/8.8711 , No. 6797, (on-line), avail-
+able from
+ []
+
+
+Underfull \hbox (badness 5345) in paragraph at lines 70--73
+[]\OT1/cmr/m/n/8.8711 Evans, C., Palmer, C. and Sleevi, R.: Pub-
+ []
+
+
+Underfull \hbox (badness 7777) in paragraph at lines 70--73
+\OT1/cmr/m/n/8.8711 lic Key Pin-ning Ex-ten-sion for HTTP, \OT1/cmr/m/it/8.8711
+ Re-quest
+ []
+
 ) [7] (./shimamoto_css2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
@@ -4200,6 +4214,6 @@ Here is how much of TeX's memory you used:
  5294 multiletter control sequences out of 15000+600000
  36731 words of font info for 162 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
- 32i,8n,21p,499b,405s stack positions out of 5000i,500n,10000p,500000b,80000s
+ 32i,8n,21p,499b,409s stack positions out of 5000i,500n,10000p,500000b,80000s
 
-Output written on shimamoto_css2016.dvi (7 pages, 55452 bytes).
+Output written on shimamoto_css2016.dvi (7 pages, 56188 bytes).

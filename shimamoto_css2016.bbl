@@ -61,4 +61,14 @@ Song, D.~X.: Athena: a new efficient automatic checker for security protocol
   analysis, {\em IEEE Computer Security Foundations Symposium}, pp.\ 192--202
   (1999).
 
+\bibitem{rfc6797}
+Hodges, J., Jackson, C. and Barth, A.: {HTTP Strict Transport Security (HSTS)},
+  {\em Request for Comments}, No.~6797, (online),
+  \urle{http://www.ietf.org/rfc/rfc6797.txt} (2012).
+
+\bibitem{rfc7469}
+Evans, C., Palmer, C. and Sleevi, R.: {Public Key Pinning Extension for HTTP},
+  {\em Request for Comments}, No.~7469, (online),
+  \urle{http://www.ietf.org/rfc/rfc7469.txt} (2015).
+
 \end{thebibliography}
