@@ -345,17 +345,31 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 \label{fig:model_alloy}
 \end{figure}
 
-%%%
-%%%
-%%%
-%%%
-%%%
+\color{red}
+提案モデル内で整数値はIntクラスを関連付けることで表現できる。
+例えば、CacheControlヘッダのmax-ageのようないくつかのオプションには整数値を用いるものが存在し、このようなオプションにIntクラスが関連付けられていることが図\ref{fig:model_alloy}に示している。
+同様に、日時を表す値を必要とするDateヘッダにもIntを関連付けている。
+本来、日時を表す値と整数値は異なるものであるが、HTTPにおいて日時を表す値を用いる際には対応する整数値に変換して扱うため、Intクラスを関連付けることはHTTPの仕様に反してはいない。
 
-%例えば、図\ref{fig:model_alloy}にはCacheControlヘッダが含まれている。
-%CacheControlヘッダのmax-ageのようないくつかのオプションには整数値を用いるものが存在し、このようなオプションに整数値を表すIntクラスを関連付けている。
-%同様に、日時を表す値を必要とするDateヘッダにもIntを関連付けている。
-%本来、日時を表す値と整数値は異なるものであるが、このように実装することはHTTPの仕様に反してはいない。
-%なぜなら、日時を表す値を用いる際には、対応する整数値に変換して扱うためである。
+これらのクラスはレスポンスの有効期限の条件の記述に利用している。\\
+\hrulefill
+\begin{small}
+\begin{verbatimtab}[2]
+1	let A = HTTPResponse.headers.age, 
+	D = HTTPResponse.headers.date |
+2		let apparent=(restime.minus[D]>0 implies
+		restime.minus[D] else 0), corrected = 
+		A.plus[restime.minus[reqtime]] | 
+3			let initial=(apparent>corrected 
+			implies apparent else corrected) | 
+4				Maxage.time.minus[initial.plus
+				[current.minus[restime]]]>0
+\end{verbatimtab}
+\end{small}
+\hrulefill\\
+このコードは、PrivateCacheにおけるmax-ageの値を有効期限に採用する際の条件式である。
+
+\color{black}
 
 \color{red}
 表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
@@ -380,9 +394,7 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 \begin{verbatimtab}[4]
 	Date: 3
 \end{verbatimtab}
-%\end{small}
 同様に、HTTPレスポンスは以下のヘッダが想定されている。
-%\begin{small}
 \begin{verbatimtab}[4]
 	Date: 3
 	Age: 1
@@ -417,15 +429,8 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 以上より経過時間は有効期限内となり、レスポンスは再利用可能条件を満たしている。
 したがって、状態aはHTTPの仕様を満たしている。
 
-%\subsection{BCP攻撃}
-%さらに、提案モデルの能力評価としてBCP攻撃の動作を包括していることを確認した。BCP攻撃はHTTPSに対する中間者攻撃を含み、その際に自己署名証明書を使用し通信内容を改ざんする。この能力は脅威モデルの一つであるnetwork attackerが有している。コンテンツの改ざんが可能であり、またヘッダの編集によってキャッシュの長期に渡る汚染が可能である。その一例として以下のようなヘッダが考えられる。
-%
-%\begin{small}
-%\begin{verbatim}
-%Cache-control: max-age=2147483648
-%\end{verbatim}
-%\end{small}
-%このmax-ageの値は設定することのできる最大値であり、これは68年にも相当する。実際の保存容量の限界によって整理されるなどの他の要因を無視すれば、理論上68年にわたるキャッシュの汚染が可能ということになる。また、このヘッダの編集では期限の長期化と同時に検証機能をできるだけ行わせないという役割もある。コンテンツの内容を改ざんしている場合、検証を行うとオリジンサーバとの相違が発見され改ざんが修正される。Cache-Controlヘッダでは再利用時には毎回検証を要求する記述も可能であり、その記述を除去することでコンテンツの改ざんがキャッシュ内で長期的に維持される。
+\subsection{検証2（仮題）}
+
 
 \section{結論}
 %本研究では，文献\cite{webmodel}で報告されている既存のウェブセキュリティモデルに対して，その不足点であるキャッシュの概念の追加したモデルを提案した．主にキャッシュの動作，キャッシュを搭載するウェブの構成要素，キャッシュの動作に使用するヘッダについてHTTP/1.1及びHTTP/1.0の仕様に従ってモデルを作成した．また，提案モデルの能力評価も行った．その結果，提案モデルの一般的なキャッシュの使用に伴う動作が上記の仕様を満たしていることを確認した．また，キャッシュを利用するBCP攻撃の動作を提案モデルを用いて考察した．BCP攻撃が関連研究\cite{bcpattack}に記述されている方法で実行可能であることを確認し，その対策としてキャッシュの検証機能を用いることが有効であることを発見した．\par
@@ -435,7 +440,7 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 
 
 \begin{acknowledgment}
-謝辞謝辞謝辞
+本研究の一部は，JSPS科研費16K16065の助成を受けている．
 \end{acknowledgment}
 
 \bibliographystyle{ipsjunsrt}
