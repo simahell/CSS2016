@@ -6,7 +6,7 @@
 \usepackage{latexsym}
 \usepackage{color}
 \usepackage{moreverb}
-%\usepackage{cite}
+\usepackage{cite}
 
 \def\Underline{\setbox0\hbox\bgroup\let\\\endUnderline}
 \def\endUnderline{\vphantom{y}\egroup\smash{\underline{\box0}}\\}
@@ -62,7 +62,7 @@ system, cache, web security model, security model, formal method
 
 \color{red}
 この形式手法を用いた解析に向けて、Ahkaweらによって提案されたモデルが存在する\cite{webmodel}。
-この論文ではWeb のセキュリティ機能を導入した初のモデルであり、このモデルに基づいた安全性解析が多くの論文で使用されている。
+こののセキュリティ機能を導入した初のモデルであり、このモデルに基づいた安全性解析が多くの論文で使用されている。
 \color{black}
 \color{red}
 （引用つける）
@@ -79,7 +79,7 @@ system, cache, web security model, security model, formal method
 例えば、キャッシュの動作の指定に必要なCache-Controlヘッダや有効期限の計算に必要となるレスポンスの生成時刻を記述するDateヘッダである。
 
 \color{red}
-（記述中）
+（記述中 検証結果をふまえて最後に書きます）
 \color{black}
 
 \subsection{関連研究}
@@ -97,10 +97,6 @@ Ahkaweらによる既存モデル\cite{webmodel}は本研究で提案するウ�
 また、OSカーネルの検証\cite{sel4_formal_verification_of_an}が形式手法を用いて行われており、形式手法を安全性証明として利用できることを示している。
 さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。この研究はOSのユーザ権限に着目した安全性検証を目指している。
 これらの他に形式手法は様々な対象に応用されており、アルゴリズムやプロトコルの安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が存在する\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
-
-\color{red}
-（記述中）
-\color{black}
 
 \section{Ahkaweらのモデルの問題}
 
@@ -365,7 +361,7 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
 \color{black}
 
-\section{事例研究}
+\section{実装モデルの正当性}
 提案モデルのヘッダ定義が正当であることを確認する。
 前述した通り実装モデルを与えてAlloyを動作させると、そのモデルを満たす状態が出力される。
 本章では、出力された状態がHTTPの仕様を満たしていることを確認することで、正当性を考察する。
@@ -421,7 +417,7 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 以上より経過時間は有効期限内となり、レスポンスは再利用可能条件を満たしている。
 したがって、状態aはHTTPの仕様を満たしている。
 
-\subsection{BCP攻撃}
+%\subsection{BCP攻撃}
 %さらに、提案モデルの能力評価としてBCP攻撃の動作を包括していることを確認した。BCP攻撃はHTTPSに対する中間者攻撃を含み、その際に自己署名証明書を使用し通信内容を改ざんする。この能力は脅威モデルの一つであるnetwork attackerが有している。コンテンツの改ざんが可能であり、またヘッダの編集によってキャッシュの長期に渡る汚染が可能である。その一例として以下のようなヘッダが考えられる。
 %
 %\begin{small}

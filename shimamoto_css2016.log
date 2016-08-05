@@ -1,4 +1,4 @@
-This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.sjis) (TeX Live 2016/W32TeX) (preloaded format=platex 2016.5.17)  4 AUG 2016 12:07
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.sjis) (TeX Live 2016/W32TeX) (preloaded format=platex 2016.5.17)  5 AUG 2016 11:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -4087,7 +4087,11 @@ Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
 \tab@size=\count103
 \listing@line=\count104
 )
-(./shimamoto_css2016.aux)
+(c:/w32tex/share/texmf-dist/tex/latex/cite/cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 332.
+Package: cite 2015/02/27  v 5.5
+) (./shimamoto_css2016.aux)
 \openout1 = `shimamoto_css2016.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
@@ -4150,22 +4154,23 @@ LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9.61035> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 50.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9.61035> not available
 (Font)              Font shape `JY1/gt/m/n' tried instead on input line 50.
- [1
+
+[1
 
 
 ] [2] [3]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JT1/gt/m/n' tried instead on input line 243.
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 239.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.13184> not available
-(Font)              Font shape `JY1/gt/m/n' tried instead on input line 243.
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 239.
  [4]
 File: model_archi.eps Graphic file (type eps)
  <model_archi.eps>
 File: model_alloy.eps Graphic file (type eps)
  <model_alloy.eps>
 File: case1.eps Graphic file (type eps)
-
-<case1.eps> [5] (./shimamoto_css2016.bbl
+ <case1.eps> [5]
+(./shimamoto_css2016.bbl
 LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 1.
 LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <8.8711> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 5.
@@ -4182,12 +4187,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1714 strings out of 493693
- 23640 string characters out of 6151665
- 87605 words of memory out of 5000000
- 5284 multiletter control sequences out of 15000+600000
+ 1804 strings out of 493693
+ 24793 string characters out of 6151665
+ 88877 words of memory out of 5000000
+ 5371 multiletter control sequences out of 15000+600000
  36564 words of font info for 161 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  32i,9n,21p,690b,357s stack positions out of 5000i,500n,10000p,500000b,80000s
 
-Output written on shimamoto_css2016.dvi (7 pages, 50760 bytes).
+Output written on shimamoto_css2016.dvi (7 pages, 50716 bytes).
