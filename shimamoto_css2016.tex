@@ -327,7 +327,6 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 図\ref{fig:model_alloy}内の黒の矢印は継承関係を表し、その他の色は集合ごとの関係性を表す。
 例えば、Generalヘッダフィールドに属しているCache-Controlヘッダは、モデル内ではHTTPGeneralHeaderをCacheControlHeader継承している関係性で表現されている。
 また、Cache-Controlヘッダとそのオプションを表すCacheOptionはoptionsと関連付けられている。
-\color{black}
 
 \begin{table}[htb]
 \centering
@@ -350,7 +349,6 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 \label{fig:model_alloy}
 \end{figure}
 
-\color{red}
 提案モデル内で整数値はIntクラスを関連付けることで表現できる。
 例えば、CacheControlヘッダのmax-ageのようないくつかのオプションには整数値を用いるものが存在し、このようなオプションにIntクラスが関連付けられていることが図\ref{fig:model_alloy}に示している。
 同様に、日時を表す値を必要とするDateヘッダにもIntを関連付けている。
@@ -373,10 +371,8 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 \hrulefill\\
 このコードは、PrivateCacheにおけるmax-ageの値を有効期限に採用する際に満たしているべき条件、つまり、
 \ref{sec:expiration}節における計算を行いその値がmax-ageの値よりも小さいことを示している。
-\color{black}
 
-\color{red}
-表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
+また、表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
 \color{black}
 
 \section{実装モデルの正当性}
