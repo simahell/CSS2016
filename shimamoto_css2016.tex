@@ -98,6 +98,10 @@ Ahkaweらによる既存モデル\cite{webmodel}は本研究で提案するウ�
 さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。この研究はOSのユーザ権限に着目した安全性検証を目指している。
 これらの他に形式手法は様々な対象に応用されており、アルゴリズムやプロトコルの安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が存在する\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
 
+\color{red}
+（関連研究二つ追加）
+\color{black}
+
 \section{Ahkaweらのモデルの問題}
 
 \subsection{モデルの概要}
@@ -319,6 +323,12 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 
 \color{red}
 実装を行う項目と実装を終えている項目を表\ref{tb:model_implement}に示す。
+また、モデルにおける実装済みの項目の構造は図\ref{fig:model_alloy}のように表される。
+図\ref{fig:model_alloy}内の黒の矢印は継承関係を表し、その他の色は集合ごとの関係性を表す。
+例えば、Generalヘッダフィールドに属しているCache-Controlヘッダは、モデル内ではHTTPGeneralHeaderをCacheControlHeader継承している関係性で表現されている。
+また、Cache-Controlヘッダとそのオプションを表すCacheOptionはoptionsと関連付けられている。
+\color{black}
+
 \begin{table}[htb]
 \centering
 \label{tb:model_implement}
@@ -332,11 +342,6 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 ヘッダ & △（一部） \\
 \end{tabular}
 \end{table}
-また、モデルにおける実装済みの項目の構造は図\ref{fig:model_alloy}のように表される。
-図\ref{fig:model_alloy}内の黒の矢印は継承関係を表し、その他の色は集合ごとの関係性を表す。
-例えば、Generalヘッダフィールドに属しているCache-Controlヘッダは、モデル内ではHTTPGeneralHeaderをCacheControlHeader継承している関係性で表現されている。
-また、Cache-Controlヘッダとそのオプションを表すCacheOptionはoptionsと関連付けられている。
-\color{black}
 
 \begin{figure}[htb]
 \centering
@@ -351,24 +356,23 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 同様に、日時を表す値を必要とするDateヘッダにもIntを関連付けている。
 本来、日時を表す値と整数値は異なるものであるが、HTTPにおいて日時を表す値を用いる際には対応する整数値に変換して扱うため、Intクラスを関連付けることはHTTPの仕様に反してはいない。
 
-これらのクラスはレスポンスの有効期限の条件の記述に利用している。\\
-\hrulefill
+これらの整数値を持つクラスはレスポンスの有効期限の条件の記述に利用している。\\\hrulefill
 \begin{small}
-\begin{verbatimtab}[2]
-1	let A = HTTPResponse.headers.age, 
+\begin{verbatimtab}[3]
+1:	let A = HTTPResponse.headers.age, 
 	D = HTTPResponse.headers.date |
-2		let apparent=(restime.minus[D]>0 implies
+2:		let apparent=(restime.minus[D]>0 implies
 		restime.minus[D] else 0), corrected = 
 		A.plus[restime.minus[reqtime]] | 
-3			let initial=(apparent>corrected 
+3:			let initial=(apparent>corrected 
 			implies apparent else corrected) | 
-4				Maxage.time.minus[initial.plus
+4:				Maxage.time.minus[initial.plus
 				[current.minus[restime]]]>0
 \end{verbatimtab}
 \end{small}
 \hrulefill\\
-このコードは、PrivateCacheにおけるmax-ageの値を有効期限に採用する際の条件式である。
-
+このコードは、PrivateCacheにおけるmax-ageの値を有効期限に採用する際に満たしているべき条件、つまり、
+\ref{sec:expiration}節における計算を行いその値がmax-ageの値よりも小さいことを示している。
 \color{black}
 
 \color{red}
@@ -405,18 +409,6 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 次に、\ref{sec:expiration}節のキャッシュの再利用条件について考察する。
 レスポンスのヘッダに有効期限を過ぎているレスポンスの再利用を許可する記述はなく、キャッシュの検証も行っていないため、レスポンスが有効期限内である必要があり図\ref{fig:case1}の情報から判定を行う。
 有効期限はmax-ageの値が採用され7となり、レスポンスの経過時間$T_{age}$を\ref{sec:expiration}節の計算式を用いて求める。
-%\begin{eqnarray*}
-%T_{apparent} & = & max(0,\;restime - date) \\
-%& = & max(0,\;-1) = 0 \\
-%T_{corrected} & = & age + (restime - reqtime)\\
-%& = & 1 + (2 - 1) = 2\\
-%T_{initial} & = & max(T_{apparent},\;T_{corrected})\\
-%& = & max(0,\;2) = 2\\
-%T_{visit} & = & current - restime\\
-%& = & 3 - 2 = 1\\
-%T_{age} & = & T_{initial} + T_{visit}\\
-%& = & 2 + 1 = 3
-%\end{eqnarray*}
 \begin{eqnarray*}
 &&age\;=\;1,\; date\;=\;3,\; current\;=\;3\\
 &&reqtime\;=\;1,\; restime\;=\;2\\
@@ -433,11 +425,16 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 
 
 \section{結論}
-%本研究では，文献\cite{webmodel}で報告されている既存のウェブセキュリティモデルに対して，その不足点であるキャッシュの概念の追加したモデルを提案した．主にキャッシュの動作，キャッシュを搭載するウェブの構成要素，キャッシュの動作に使用するヘッダについてHTTP/1.1及びHTTP/1.0の仕様に従ってモデルを作成した．また，提案モデルの能力評価も行った．その結果，提案モデルの一般的なキャッシュの使用に伴う動作が上記の仕様を満たしていることを確認した．また，キャッシュを利用するBCP攻撃の動作を提案モデルを用いて考察した．BCP攻撃が関連研究\cite{bcpattack}に記述されている方法で実行可能であることを確認し，その対策としてキャッシュの検証機能を用いることが有効であることを発見した．\par
-%また、現在研究が進められているプロトコルであるHTTP Strict Transport Security (HSTS)\cite{rfc6797}およびPublic Key Pinning for HTTP (HPKP)\cite{rfc7469}について考察した。これら二つのプロトコルは暗号通信のプロトコルとして現在広く使用されているHTTPSに含まれる脆弱性を補ったものである。これらは動作の実装にキャッシュを使用しているため、提案モデルでの包括を考察した。提案モデルではHSTSとHPKPの運用に必要なヘッダを包括できていないため、提案モデルでのこれらの包括していない。しかし、この部分の拡張によって包括できる可能性が高いと考えている。\par
-%今後の課題としては提案モデルの実用性の向上を目指すことである．まず，提案モデルを形式手法に使用できる形式を用いて実装する．これにより，形式手法ツールを用いて実際に存在するシステムの安全性を自動的に確認することができるようになる．次に、HSTSとHPKPを包括するよう提案モデルをさらに拡張することである。\par
+本研究では，Ahkaweらの既存のウェブセキュリティモデル\cite{webmodel}に不足点があることを受けて、新たにキャッシュを含むセキュリティモデルを提案した。
+主にキャッシュの動作，キャッシュを搭載するウェブの構成要素，キャッシュの動作に使用するヘッダについてHTTP/1.1及びHTTP/1.0の仕様に従ってモデルを作成した．
+また，提案モデルの実装を行っており、実装を終えている機能についての正当性の確認を行った．
+その結果、レスポンスの格納や再利用、その条件判定について正常に動作していることを確認した。
 
-
+本研究の今後の課題は、実装を終えていない要素の実装である。
+また、この提案モデルの実装後は、現在研究が進められているプロトコルであるHTTP Strict Transport Security (HSTS)\cite{rfc6797}およびPublic Key Pinning for HTTP (HPKP)\cite{rfc7469}を包括したモデルの提案を考えている。
+これら二つのプロトコルは暗号通信のプロトコルとして現在広く使用されているHTTPSに含まれる脆弱性を補ったものであり、動作の実装にキャッシュを使用しているため提案モデルとの関連性は高い。
+HSTSとHPKPの運用には専用のヘッダを必要とし、モデルではそれらを包括できていない。
+しかし、この部分の拡張によってこの二つのプロトコルを包括できる可能性が高いと考えている。
 
 \begin{acknowledgment}
 本研究の一部は，JSPS科研費16K16065の助成を受けている．
