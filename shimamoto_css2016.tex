@@ -61,8 +61,7 @@ system, cache, web security model, security model, formal method
 また，この解析を形式手法ツールを用い自動化することにより，安全性解析にかかる労力を大幅に削減できる．
 
 \color{red}
-この形式手法を用いた解析に向けて、Ahkaweらによって提案されたモデルが存在する\cite{webmodel}。
-こののセキュリティ機能を導入した初のモデルであり、このモデルに基づいた安全性解析が多くの論文で使用されている。
+この形式手法を用いた解析に向けて、Ahkaweらによって提案されたモデル\cite{webmodel}が存在し、このセキュリティ機能を導入した初のモデルである。
 \color{black}
 \color{red}
 （引用つける）
@@ -94,14 +93,17 @@ Ahkaweらによる既存モデル\cite{webmodel}は本研究で提案するウ�
 
 形式手法を用いた研究として、耐タンパー性を持つソフトウェアの動作を行うハードウェアの検証\cite{specifying_and_verifying_hardware_for}があり、形式手法が脆弱性とその対策に有効であることが示されている。
 \color{red}
-同様に、ウェブにおけるXMLの機能を拡張するWeb Services Enhancements(WSE)やWindowsにおいて通信APIとして使用されるWindows Communication Foundation(WCF)、Extensibe Markup Language(XML)の安全な動作に必要な安全性要求を発見した研究\cite{TFFWS27,TFFWS28}がある。
+同様に、ウェブにおけるXMLの機能を拡張するWeb Services Enhancements(WSE)やWindowsにおいて通信APIとして使用されるWindows Communication Foundation(WCF)、Extensibe Markup Language(XML)に必要な安全性要求を形式手法を用いて発見した研究\cite{TFFWS27,TFFWS28}がある。
 \color{black}
 また、OSカーネルの検証\cite{sel4_formal_verification_of_an}が形式手法を用いて行われており、形式手法を安全性証明として利用できることを示している。
 さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。この研究はOSのユーザ権限に着目した安全性検証を目指している。
 これらの他に形式手法は様々な対象に応用されており、アルゴリズムやプロトコルの安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が存在する\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
+\color{red}
+また、本研究では形式手法ツールAlloyを用いておりこのAlloyを用いている研究として、アプリケーションのアクセスパターンに着目した安全性の検証を行う研究\cite{finding_security_bugs_in_web}が存在する。
+\color{black}
 
 \color{red}
-（関連研究二つ追加）
+（関連研究追加する）
 \color{black}
 
 \section{Ahkaweらのモデルの問題}

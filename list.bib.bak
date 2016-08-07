@@ -282,7 +282,7 @@
 }
 
 @INPROCEEDINGS{finding_security_bugs_in_web,
-  author = {J. P. Near and D. Jackson},
+  author = {Joseph P. Near and Daniel Jackson},
   title = {Finding Security Bugs in Web Applications using a Catalog of Access
 	Control Patterns},
   booktitle = {IEEE International Conference on Software Engineering},
