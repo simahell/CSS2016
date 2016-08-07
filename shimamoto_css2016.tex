@@ -425,7 +425,7 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 \color{red}
 \subsection{Privateオプション}
 以下のコマンドにより、Privateオプションが記述されている際に共有キャッシュにレスポンスが格納されていないかを確認できる。
-実行の結果、共有キャッシュにレスポンスが格納されている反例が存在しなかったため、実装モデルにおいてPrivateオプションは正常に動作している。\\\hrulefill
+実行の結果、共有キャッシュにレスポンスが格納されている反例が存在しなかったため、Privateオプションは正常に動作している。\\\hrulefill
 \begin{small}
 \begin{verbatimtab}[2]
 assert checkPrivate{
@@ -436,10 +436,21 @@ check checkPrivate for 10
 \end{small}
 \hrulefill
 
+\subsection{No-storeオプション}
+以下のコマンドにより、No-storeオプションが記述されている際にキャッシュにレスポンスが格納されていないかを確認できる。
+実行の結果、キャッシュにレスポンスが格納されている反例が存在しなかったため、No-storeオプションは正常に動作している。\\
+\hrulefill
+\begin{small}
+\begin{verbatimtab}[2]
+assert checkNoStore{
+	#NoStore>0 implies #Cache.stored=0
+}
+check checkNoStore for 10
+\end{verbatimtab}
+\end{small}
+\hrulefill
+
 \color{black}
-
-
-\subsection{検証（仮題）}
 
 \section{結論}
 本研究では，Ahkaweらの既存のウェブセキュリティモデル\cite{webmodel}に不足点があることを受けて、新たにキャッシュを含むセキュリティモデルを提案した。
