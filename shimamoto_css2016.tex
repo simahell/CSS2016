@@ -72,13 +72,14 @@ system, cache, web security model, security model, formal method
 以上のことから本研究はキャッシュの動作を包括するウェブセキュリティモデルの提案を目的とする。
 
 \subsection{貢献}
-本研究で提案するウェブセキュリティモデルはウェブで使用するキャッシュの動作を包括している。
+\color{red}
+本研究で提案するウェブセキュリティモデルはウェブで使用するキャッシュの動作を、格納と再利用、再利用の可能性判定、レスポンスの検証の三点に分けて包括する。
 また、ウェブ上でキャッシュを搭載しうる存在としてクライアントとウェブサーバに加えて中継者があり、提案モデルではキャッシュの動作に必要な要素として導入している。
-さらに、キャッシュを実際に利用する際に必要となるHTTP ヘッダも新たに導入している。
+さらに、キャッシュを実際に利用する際に必要となるHTTP ヘッダも新たに導入する。
 例えば、キャッシュの動作の指定に必要なCache-Controlヘッダや有効期限の計算に必要となるレスポンスの生成時刻を記述するDateヘッダである。
 
-\color{red}
-（記述中 検証結果をふまえて最後に書きます）
+この提案モデルの一部を形式手法ツールAlloyを用いて実装している。
+また、Alloyの機能を用いて、実装を終えた部分についてはHTTPの仕様に従って正常に実装ができているかを確認している。
 \color{black}
 
 \subsection{関連研究}
@@ -334,8 +335,8 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 
 \begin{table}[htb]
 \centering
-\label{tb:model_implement}
 \caption{実装項目}
+\label{tb:model_implement}
 \begin{tabular}{l|c}
 実装項目 & 実装済み \\ \hline
 レスポンスの格納 & ○ \\
@@ -430,12 +431,13 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 assert checkPrivate{
 	#Private>0 implies #PublicCache.stored=0
 }
-
 check checkPrivate for 10
 \end{verbatimtab}
 \end{small}
 \hrulefill
+
 \color{black}
+
 
 \subsection{検証（仮題）}
 
