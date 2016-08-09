@@ -80,34 +80,23 @@ Ahkaweらによる既存モデル\cite{webmodel}は本研究で提案するウ�
 しかしこのモデルにはキャッシュが包括されていない。
 また、Web のセキュリティに関連した研究としては、Barthら\cite{securing_frame_communication_in_browsers}がSSL/TLS の安全性を調査している。
 本稿で対象とする攻撃者の能力はBarthらの研究で想定されている能力に相当する。
-
-
-
-%（以下、文修正案ではなく、コメント）以降の関連研究の流れは2つに分ける。一つ目は（セキュリティではない）ウェブの形式検証の研究で、 [6,7] に相当。まずこれらを説明する。その後に二つ目として、（ウェブではない）セキュリティの研究を紹介、 [5,8,9] に相当。なお、それ以外の内容についてはWeb セキュリティの検証に相当する研究なので、一段落目にて述べる。
-
-形式手法を用いた研究として、耐タンパー性を持つソフトウェアの動作を行うハードウェアの検証\cite{specifying_and_verifying_hardware_for}があり、形式手法が脆弱性とその対策に有効であることが示されている。
 \color{red}
+また、本研究と同様に形式手法はウェブの様々な要素における安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が行われている\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
+
+安全性に関する項目を含まない検証に対して形式手法は有効である。
+XMLの機能を拡張するWeb Services Enhancements(WSE)やWindowsにおいて通信APIとして使用されるWindows Communication Foundation(WCF)、Extensibe Markup Language(XML)の動作の検証\cite{TFFWS27,TFFWS28}が行われている。
+また、ウェブに含まれる要素以外のシステムに対する安全性検証にも形式手法は利用されている。
+耐タンパー性を持つソフトウェアの動作を行うハードウェアの検証\cite{specifying_and_verifying_hardware_for}があり、形式手法が脆弱性とその対策に有効であることが示されている。
 同様に、ウェブにおけるXMLの機能を拡張するWeb Services Enhancements(WSE)やWindowsにおいて通信APIとして使用されるWindows Communication Foundation(WCF)、Extensibe Markup Language(XML)に必要な安全性要求を形式手法を用いて発見した研究\cite{TFFWS27,TFFWS28}がある。
-\color{black}
 また、OSカーネルの検証\cite{sel4_formal_verification_of_an}が形式手法を用いて行われており、形式手法を安全性証明として利用できることを示している。
-さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。この研究はOSのユーザ権限に着目した安全性検証を目指している。
-これらの他に形式手法は様々な対象に応用されており、アルゴリズムやプロトコルの安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が存在する\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
-\color{red}
-また、本研究では形式手法ツールAlloyを用いており、このAlloyを用いている研究としてアプリケーションのアクセスパターンに着目した安全性の検証を行う研究\cite{finding_security_bugs_in_web}が存在する。
-\color{black}
-
-\color{red}
-（関連研究追加する）
+さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。
+この研究はOSのユーザ権限に着目した安全性検証を目指している。
 \color{black}
 
 \section{Ahkaweらのモデルの問題}
 
 \subsection{モデルの概要}
 \label{sec:existingmodel}
-\color{red}
-（余裕があれば関連研究へ）
-\color{black}
-
 Ahkaweらによる既存モデル\cite{webmodel}に包括されている概念は大きく三つである。
 一つ目はブラウザである。
 ブラウザはクライアントとしての基本的な動作とCookieやスクリプトなどの動作が想定されている。
@@ -328,10 +317,10 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 実装を行う項目と実装を終えている項目を表\ref{tb:model_implement}に示す。
 また、モデルにおける実装済みの項目の構造は図\ref{fig:model_alloy}のように表される。
 図\ref{fig:model_alloy}内の黒の矢印は継承関係を表し、その他の色は集合ごとの関係性を表す。
-例えば、Generalヘッダフィールドに属しているCache-Controlヘッダは、モデル内ではHTTPGeneralHeaderをCacheControlHeader継承している関係性で表現されている。
+\color{red}
+例えば、Generalヘッダフィールドに属しているCache-Controlヘッダは、モデル内ではHTTPGeneralHeaderをCacheControlHeaderの性質を継承していることが表現されている。
+\color{black}
 また、Cache-Controlヘッダとそのオプションを表すCacheOptionはoptionsと関連付けられている。
-
-%なんの継承関係か書く
 
 \begin{table}[htb]
 \centering
@@ -359,7 +348,32 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 同様に、日時を表す値を必要とするDateヘッダにもIntを関連付けている。
 本来、日時を表す値と整数値は異なるものであるが、HTTPにおいて日時を表す値を用いる際には対応する整数値に変換して扱うため、Intクラスを関連付けることはHTTPの仕様に反してはいない。
 
-これらの整数値を持つクラスはレスポンスの有効期限の条件の記述に利用している。
+\color{red}
+ここで、Cache-Controlヘッダの記述を以下に示す。\\\hrulefill
+\begin{small}
+\begin{verbatimtab}[3]
+1: sig CacheControlHeader extends HTTPGeneralHeader
+		{options : set CacheOption}
+2: abstract sig CacheOption{}
+3: abstract sig RequestCacheOption
+		extends CacheOption{}
+4: abstract sig ResponseCacheOption
+		extends CacheOption{}
+5: sig NoCache,NoStore extends CacheOption{}
+6: sig OnlyIfCached extends RequestCacheOption{}
+7: sig MaxStale extends RequestCacheOption
+		{time: one Int}{time > 0}
+8: sig Private extends ResponseCacheOption{}
+9: sig Maxage,SMaxage extends ResponseCacheOption
+		{time: one Int}{time > 0}
+\end{verbatimtab}
+\end{small}
+\hrulefill\\
+Cache-Controlヘッダは属するHTTPGeneralHeaderの性質を継承しており、オプションを示すCacheOptionの集合を有する。
+各オプションはこのCacheOptionの性質を継承し、整数を持つオプションのみ整数を有している。
+\color{black}
+
+これらのオプションとその他のヘッダを用いて、レスポンスの有効期限の条件を表現している。
 以下にその記述を示す。\\\hrulefill
 \begin{small}
 \begin{verbatimtab}[3]
@@ -425,7 +439,6 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 以上より経過時間は有効期限内となり、レスポンスは再利用可能条件を満たしている。
 したがって、状態aはHTTPの仕様を満たしている。
 
-\color{red}
 \subsection{Privateオプション}
 以下のコマンドにより、Privateオプションが記述されている際に共有キャッシュにレスポンスが格納されていないかを確認できる。
 実行の結果、共有キャッシュにレスポンスが格納されている反例が存在しなかったため、Privateオプションは正常に動作している。\\\hrulefill
@@ -454,8 +467,6 @@ check checkNoStore for 10
 \end{verbatimtab}
 \end{small}
 \hrulefill
-
-\color{black}
 
 \section{結論}
 本研究では，Ahkaweらの既存のウェブセキュリティモデル\cite{webmodel}に不足点があることを受けて、新たにキャッシュを含むセキュリティモデルを提案した。
