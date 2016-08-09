@@ -305,6 +305,7 @@ HTTP/1.1においてプロキシは通過するコンテンツへの編集と通
 \end{figure}
 
 \section{モデル実装}
+\label{sec:implementation}
 提案モデルの実装は形式手法ツールであるAlloyを用いて進めている。
 Alloyはモデルを与えて実行することで、そのモデルがとり得る状態をすべて出力する。
 この出力された状態が安全であるかを確認することで、システムの安全性を証明することができると同時に、潜在的な危険性の発見が可能である。
@@ -349,34 +350,42 @@ Ahkaweらによる既存モデル\cite{webmodel}はこのAlloyを用いて実装
 本来、日時を表す値と整数値は異なるものであるが、HTTPにおいて日時を表す値を用いる際には対応する整数値に変換して扱うため、Intクラスを関連付けることはHTTPの仕様に反してはいない。
 
 \color{red}
-ここで、Cache-Controlヘッダの記述を以下に示す。\\\hrulefill
+ここで、Cache-ControlヘッダやDateヘッダなどの記述を以下に示す。\\\hrulefill
 \begin{small}
-\begin{verbatimtab}[3]
-1: sig CacheControlHeader extends HTTPGeneralHeader
+\begin{verbatimtab}[4]
+1:	sig CacheControlHeader extends HTTPGeneralHeader
 		{options : set CacheOption}
-2: abstract sig CacheOption{}
-3: abstract sig RequestCacheOption
+2:	abstract sig CacheOption{}
+3:	abstract sig RequestCacheOption
 		extends CacheOption{}
-4: abstract sig ResponseCacheOption
+4:	abstract sig ResponseCacheOption
 		extends CacheOption{}
-5: sig NoCache,NoStore extends CacheOption{}
-6: sig OnlyIfCached extends RequestCacheOption{}
-7: sig MaxStale extends RequestCacheOption
+5:	sig NoCache,NoStore extends CacheOption{}
+6:	sig OnlyIfCached extends RequestCacheOption{}
+7:	sig MaxStale extends RequestCacheOption
 		{time: one Int}{time > 0}
-8: sig Private extends ResponseCacheOption{}
-9: sig Maxage,SMaxage extends ResponseCacheOption
+8:	sig Private extends ResponseCacheOption{}
+9:	sig Maxage,SMaxage extends ResponseCacheOption
 		{time: one Int}{time > 0}
+
+10: sig AgeHeader extends HTTPResponseHeader
+		{age : one Int}{age > 0}
+11:	sig DateHeader extends HTTPGeneralHeader
+		{date : one Int}{date > 0}
+12:	sig ExpiresHeader extends HTTPGeneralHeader
+		{expire : one Int}{expire > 0}
 \end{verbatimtab}
 \end{small}
 \hrulefill\\
 Cache-Controlヘッダは属するHTTPGeneralHeaderの性質を継承しており、オプションを示すCacheOptionの集合を有する。
 各オプションはこのCacheOptionの性質を継承し、整数を持つオプションのみ整数を有している。
+また、期限の計算に用いるAgeヘッダ、Dateヘッダ、Expiresヘッダも整数を有している。
 \color{black}
 
-これらのオプションとその他のヘッダを用いて、レスポンスの有効期限の条件を表現している。
-以下にその記述を示す。\\\hrulefill
+これらのオプションとヘッダを用いて、レスポンスの有効期限の条件を表現している。
+以下にその条件と使用するヘッダの記述を示す。\\\hrulefill
 \begin{small}
-\begin{verbatimtab}[3]
+\begin{verbatimtab}[4]
 1:	let A = HTTPResponse.headers.age, 
 	D = HTTPResponse.headers.date |
 2:		let apparent=(restime.minus[D]>0 implies
@@ -392,11 +401,37 @@ Cache-Controlヘッダは属するHTTPGeneralHeaderの性質を継承してお�
 このコードは、PrivateCacheにおけるmax-ageの値を有効期限に採用する際に満たしているべき条件、つまり、
 \ref{sec:expiration}節における計算における値がmax-ageの値よりも小さいことを示している。
 
-また、表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
+\color{red}
+また、PrivateオプションやNo-storeオプションによる動作の制限は、キャッシュの定義に含まれており以下のように記述している。\\\hrulefill
+\begin{small}
+\begin{verbatimtab}[4]
+abstract sig Cache{
+	stored: lone HTTPResponse,
+	current: one Int,
+	reqtime: one Int,
+	restime: one Int
+}{
+	current > 0
+	reqtime > 0
+	restime > 0
+	#stored  = 1 implies
+		current > restime and restime > reqtime
+	#stored>0 implies no NoStore
+	#stored>0 implies #AgeHeader>0
+}
 
-%ほかに何点か今回新たに実装したところを（中心になるところから順に）掲載する。例えば、次節以降で利用するHTTP レスポンスのヘッダの記述など
+sig PublicCache extends Cache{}{
+	#stored>0 implies no Private
+}
+\end{verbatimtab}
+\end{small}
+\hrulefill\\
+\color{black}
+
+表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
 
 \section{実装モデルの正当性}
+\label{sec:correctness}
 提案モデルのヘッダ定義が正当であることを確認する。
 前述した通り実装モデルを与えてAlloyを動作させると、そのモデルを満たす状態が出力される。
 本章では、出力された状態がHTTPの仕様を満たしていることを確認することで、正当性を確認する。
@@ -421,8 +456,8 @@ Cache-Controlヘッダは属するHTTPGeneralHeaderの性質を継承してお�
 	Age: 1
 	Cache-Control: max-age=7
 \end{verbatimtab}
-%このあたりもヘッダの記述を記載すること。（それがないと妥当かどうかわからない）
 ここで、このレスポンスのキャッシュへの格納、およびこの状況における再利用が正当であるかを考察する。
+考察に使用するヘッダの記述は\ref{sec:implementation}章に前述している。
 まず、このレスポンスにはキャッシュを禁止する記述はなく、かつ、有効期限を明記するCache-Controlヘッダのmax-ageオプションが指定されているため、\ref{sec:store_reuse}節のキャッシュへの格納条件を満たしている。
 次に、\ref{sec:expiration}節のキャッシュの再利用条件について考察する。
 レスポンスのヘッダに有効期限を過ぎているレスポンスの再利用を許可する記述はなく、キャッシュの検証も行っていないため、レスポンスが有効期限内である必要があり図\ref{fig:case1}の情報から判定を行う。
@@ -439,9 +474,14 @@ Cache-Controlヘッダは属するHTTPGeneralHeaderの性質を継承してお�
 以上より経過時間は有効期限内となり、レスポンスは再利用可能条件を満たしている。
 したがって、状態aはHTTPの仕様を満たしている。
 
+\color{red}
 \subsection{Privateオプション}
-以下のコマンドにより、Privateオプションが記述されている際に共有キャッシュにレスポンスが格納されていないかを確認できる。
-実行の結果、共有キャッシュにレスポンスが格納されている反例が存在しなかったため、Privateオプションは正常に動作している。\\\hrulefill
+Privateオプションの制限が正常に機能しているか確認する。
+この制限は以下の記述で表現され、共有キャッシュに格納されているレスポンスが存在する場合、Publicオプションが含まれていないことを表している。
+\begin{verbatimtab}[2]
+	#stored>0 implies no Private
+\end{verbatimtab}
+この制限の確認には以下のコマンドを使用する。\\\hrulefill
 \begin{small}
 \begin{verbatimtab}[2]
 assert checkPrivate{
@@ -450,14 +490,18 @@ assert checkPrivate{
 check checkPrivate for 10
 \end{verbatimtab}
 \end{small}
-\hrulefill
-
-%Private オプションが正常に動作しているかの根拠にはならない。前節のレスポンスの格納と再利用はまだ計算結果が一致するという議論から正当性の保証になっているが、これはそもそもそのような比較対象がない。Private オプションがなんであって、どういう記述をしたのかをまず乗せること。
+\hrulefill\\
+上記のコマンドにより、Alloyは制限に対する反例、つまり、Privateの記述がある場合にレスポンスが共有キャッシュに格納されている状態が存在する場合にその反例を表示する。
+したがって、この反例が得られないことが制限が正常に機能していることを意味する。
+実行の結果、反例は出力されなかったため、正当性を確認する。
 
 \subsection{No-storeオプション}
-以下のコマンドにより、No-storeオプションが記述されている際にキャッシュにレスポンスが格納されていないかを確認できる。
-実行の結果、キャッシュにレスポンスが格納されている反例が存在しなかったため、No-storeオプションは正常に動作している。\\
-\hrulefill
+No-storeオプションの制限が正常に機能しているか確認する。
+この制限は以下の記述で表現され、キャッシュに格納されているレスポンスが存在する場合、No-storeオプションが含まれていないことを表している。
+\begin{verbatimtab}[2]
+	#stored>0 implies no NoStore
+\end{verbatimtab}
+この制限の確認には以下のコマンドを使用する。\\\hrulefill
 \begin{small}
 \begin{verbatimtab}[2]
 assert checkNoStore{
@@ -466,7 +510,11 @@ assert checkNoStore{
 check checkNoStore for 10
 \end{verbatimtab}
 \end{small}
-\hrulefill
+\hrulefill\\
+上記のコマンドにより、Alloyは制限に対する反例、つまり、No-storeの記述がある場合にレスポンスがキャッシュに格納されている状態が存在する場合にその反例を表示する。
+したがって、この反例が得られないことが制限が正常に機能していることを意味する。
+実行の結果、反例は出力されなかったため、正当性を確認する。
+\color{black}
 
 \section{結論}
 本研究では，Ahkaweらの既存のウェブセキュリティモデル\cite{webmodel}に不足点があることを受けて、新たにキャッシュを含むセキュリティモデルを提案した。
