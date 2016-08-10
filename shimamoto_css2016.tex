@@ -437,7 +437,9 @@ sig PublicCache extends Cache{}{
 \end{small}
 \hrulefill\\
 \color{red}
-（記述の意味書く）
+キャッシュは格納するHTTPResponseと記録している時刻を有している。
+また、格納レスポンスが存在する場合はNo-storeの記述がないことなどが制限として記述されている。
+さらに、PrivateCacheはCacheの性質を継承しているため、上記の制限を有しており、かつ、格納レスポンスが存在する場合はPrivateの記述がないこと
 \color{black}
 
 表\ref{tb:model_implement}の未実装の項目は、現在実装を進めており今後の課題である。
