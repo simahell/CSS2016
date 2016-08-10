@@ -83,7 +83,10 @@ Ahkaweらによる既存モデル\cite{webmodel}は本研究で提案するウ�
 しかしこのモデルにはキャッシュが包括されていない。
 また、Web のセキュリティに関連した研究としては、Barthら\cite{securing_frame_communication_in_browsers}がSSL/TLS の安全性を調査している。
 本稿で対象とする攻撃者の能力はBarthらの研究で想定されている能力に相当する。
-また、本研究と同様に形式手法はウェブの様々な要素における安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が行われている\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
+また、形式手法はウェブの様々な要素における安全性検証に用いられており、暗号アルゴリズムやSSL3.0、鍵交換プロトコル、認証プロトコルに対する検証が行われている\cite{TFFWS17,TFFWS18,TFFWS19,TFFWS20}。
+\color{red}
+これらに加えて、本研究で使用している形式手法ツールAlloyはデータへのアクセスパターンを利用した手法によるウェブアプリケーションの安全性解析に用いられている\cite{finding_security_bugs_in_web}。
+\color{black}
 
 \color{red}
 安全性にの検証以外にも、ウェブの汎用的な検証に対して形式手法は有効である。
@@ -94,10 +97,6 @@ XMLの機能を拡張するWeb Services Enhancements(WSE)やWindowsにおいて�
 また、OSカーネルの検証\cite{sel4_formal_verification_of_an}が形式手法を用いて行われており、形式手法を安全性証明として利用できることを示している。
 さらに、形式手法はAndroidOSの検証\cite{towards_formal_analysis_of_the}にも利用されている。
 この研究はOSのユーザ権限に着目した安全性検証を目指している。
-
-\color{red}
-（ICSE2016について書く）
-\color{black}
 
 \section{Ahkaweらのモデルの問題}
 
