@@ -29,22 +29,20 @@ National Institute of Technology, Nara College}
 
 
 \begin{abstract}
-\color{red}
-Ahkaweら\cite{webmodel}により提案されたセキュリティモデルは、形式手法によるウェブの安全性解析において、初の汎用的なモデルとして広く利用されている。
-\color{black}
+Ahkaweら（CSF2010）により提案されたセキュリティモデルは、形式手法によるウェブの安全性解析において、初の汎用的なモデルとして広く利用されている。
 しかし、この既存研究のモデルには現実のウェブでは欠かせない概念であるキャッシュが含まれていない。実際にBrowser Cache Poinsoning攻撃といったキャッシュを用いたHTTPSに対する攻撃法が存在することから、キャッシュの概念はウェブの安全性解析には不可欠である。本研究では、キャッシュを包括したウェブセキュリティモデルを提案する。提案モデルではキャッシュの概念に加え、その運用を行うHTTPヘッダや中継者の概念も新たに提案する。
 \end{abstract}
 
 \begin{jkeyword}
-システム，キャッシュ，ウェブセキュリティモデル、セキュリティモデル、形式手法
+ウェブ、セキュリティモデル、ウェブセキュリティモデル、キャッシュ、形式手法
 \end{jkeyword}
 
 \begin{eabstract}
-Cache is an important concept in a web system in order to provide them efficiently. Since a browser cache poisoning attack, where an adversary utilizes a web cache, has been proposed recently, analyzing the security under environments with cache is necessary. In this work, we propose a new security model including the cache. We also implement several parts of the model in Alloy.
+The security model proposed by Ahkawe et al. (CSF 2010) has been widely used as the first unified model for analyzing the web security. Since a browser cache poisoning attack, where an adversary utilizes a web cache, has been proposed recently, analyzing the security under environments with cache is necessary. In this work, we propose a new security model including the cache. Our model contains not only a definition of cache but also headers and intermediaries to deal with the cache. We  also implement several parts of the model in Alloy.
 \end{eabstract}
 
 \begin{ekeyword}
-system, cache, web security model, security model, formal method
+web, security model, web security model, cache, formal method
 \end{ekeyword}
 
 \maketitle
@@ -161,7 +159,7 @@ HTTPにおいて、キャッシュはクライアントとウェブサーバの�
 
 \subsection{キャッシュの定義}
 \label{cache}
-提案モデルではキャッシュの基本的な運用に対する動作を包括する。
+提案モデルではHTTP/1.0およびHTTP/1.1におけるキャッシュの基本的な運用に対する動作を包括する。
 ここで包括する動作は以下の三つに分類できる。
 
 \subsubsection{レスポンスの格納と再利用}
