@@ -1,28 +1,28 @@
-This is e-pTeX, Version 3.14159265-p3.6-141210-2.6 (utf8.sjis) (TeX Live 2015/W32TeX) (preloaded format=platex 2015.5.19)  3 OCT 2016 14:29
+This is e-pTeX, Version 3.14159265-p3.7-160201-2.6 (utf8.sjis) (TeX Live 2016/W32TeX) (preloaded format=platex 2016.5.17)  4 OCT 2016 11:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./shimamoto_css2016.tex
 (./shimamoto_css2016.tex
-pLaTeX2e <2006/11/10> (based on LaTeX2e <2015/01/01> patch level 0)
-Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+pLaTeX2e <2016/05/07> (based on LaTeX2e <2016/03/31>)
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (./css.cls
 Document Class: css 2016/06/13 v1.00 CSS class
 (./ipsj.cls
 Document Class: ipsj 2015/10/30 v2.00 IPSJ class
 (c:/w32tex/share/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
 
-(c:/w32tex/share/texmf-dist/tex/latex/config/color.cfg
-File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+(c:/w32tex/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: dvips.def on input line 142.
+Package color Info: Driver file: dvips.def on input line 144.
 
 (c:/w32tex/share/texmf-dist/tex/latex/graphics/dvips.def
-File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
+File: dvips.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
 )
 (c:/w32tex/share/texmf-dist/tex/latex/graphics/dvipsnam.def
-File: dvipsnam.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
+File: dvipsnam.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
 ))
 \c@@paper=\count81
 
@@ -4055,15 +4055,15 @@ Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks15
 )
 (c:/w32tex/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2014/10/28 v1.0p Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
 
 (c:/w32tex/share/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(c:/w32tex/share/texmf-dist/tex/latex/config/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+(c:/w32tex/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
 )
-Package graphics Info: Driver file: dvips.def on input line 94.
+Package graphics Info: Driver file: dvips.def on input line 96.
 )
 \Gin@req@height=\dimen130
 \Gin@req@width=\dimen131
@@ -4158,12 +4158,7 @@ LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9.61035> not available
 [1
 
 
-]
-
-LaTeX Warning: Citation `finding_security_bugs_in_web' on page 2 undefined on i
-nput line 86.
-
-[2] [3]
+] [2] [3]
 LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <8.13184> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 234.
 LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <8.13184> not available
@@ -4179,12 +4174,7 @@ Overfull \hbox (2.05847pt too wide) in paragraph at lines 352--352
 
 [6]
 File: case1.eps Graphic file (type eps)
- <case1.eps>
-
-LaTeX Warning: Reference `sec:implementation' on page 7 undefined on input line
- 456.
-
-[7] (./shimamoto_css2016.bbl
+ <case1.eps> [7] (./shimamoto_css2016.bbl
 LaTeX Font Info:    Calculating math sizes for size <8.8711> on input line 1.
 LaTeX Font Info:    Font shape `JT1/gt/m/it' in size <8.8711> not available
 (Font)              Font shape `JT1/gt/m/n' tried instead on input line 5.
@@ -4194,46 +4184,66 @@ LaTeX Font Warning: Font shape `JY1/gt/m/it' undefined
 (Font)              using `JY1/gt/m/n' instead on input line 5.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 5217) in paragraph at lines 9--13
+[]\OT1/cmr/m/n/8.8711 Y.Jia, C.Yue, D.Xinshu, S.Prateek, M.Jian and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--13
+\OT1/cmr/m/n/8.8711 L.Zhenkai: Man-in-the-browser-cache: Per-sist-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 62--66
+\OT1/cmr/m/n/8.8711 P.Derrin, D.Elkaduwe, K.Engelhardt, R.Kolanski,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
+[]\OT1/cmr/m/n/8.8711 J.Hodges, C.Jackson and A.Barth: HTTP
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 \OT1/cmr/m/n/8.8711 Strict Trans-port Se-cu-rity (HSTS), \OT1/cmr/m/it/8.8711 R
 e-quest for
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--68
+Underfull \hbox (badness 10000) in paragraph at lines 74--77
 \OT1/cmr/m/it/8.8711 Com-ments\OT1/cmr/m/n/8.8711 , No. 6797, (on-line), avail-
 able from
  []
 
 
-Underfull \hbox (badness 5345) in paragraph at lines 70--73
-[]\OT1/cmr/m/n/8.8711 Evans, C., Palmer, C. and Sleevi, R.: Pub-
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+[]\OT1/cmr/m/n/8.8711 C.Evans, C.Palmer and R.Sleevi: Pub-lic Key
  []
 
 
-Underfull \hbox (badness 7777) in paragraph at lines 70--73
-\OT1/cmr/m/n/8.8711 lic Key Pin-ning Ex-ten-sion for HTTP, \OT1/cmr/m/it/8.8711
- Re-quest
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+\OT1/cmr/m/n/8.8711 Pin-ning Ex-ten-sion for HTTP, \OT1/cmr/m/it/8.8711 Re-ques
+t for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 79--82
+\OT1/cmr/m/it/8.8711 Com-ments\OT1/cmr/m/n/8.8711 , No. 7469, (on-line), avail-
+able from
  []
 
 ) [8] (./shimamoto_css2016.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 1798 strings out of 493777
- 24750 string characters out of 6153182
- 87926 words of memory out of 5000000
- 5297 multiletter control sequences out of 15000+600000
+ 1811 strings out of 493693
+ 24905 string characters out of 6151665
+ 88877 words of memory out of 5000000
+ 5378 multiletter control sequences out of 15000+600000
  36731 words of font info for 162 fonts, out of 8000000 for 9000
  929 hyphenation exceptions out of 8191
  32i,8n,21p,515b,355s stack positions out of 5000i,500n,10000p,500000b,80000s
 
-Output written on shimamoto_css2016.dvi (8 pages, 63952 bytes).
+Output written on shimamoto_css2016.dvi (8 pages, 64476 bytes).

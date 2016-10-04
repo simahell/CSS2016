@@ -1,74 +1,83 @@
 \begin{thebibliography}{10}
 
 \bibitem{webmodel}
-Akhawe, D., Barth, A., Lam, P.~E., Mitchell, J. and Song, D.: Towards a Formal
-  Foundation of Web Security, {\em IEEE Computer Security Foundations
+D.Akhawe, A.Barth, P.E.Lam, J.Mitchell and D.Song: Towards a Formal Foundation
+  of Web Security, {\em Proceedings of IEEE Computer Security Foundations
   Symposium}, pp.\ 290--304 (2010).
 
 \bibitem{bcpattack}
-Y.Jia, Yue, C., Xinshu, D., Prateek, S., Jian, M. and Zhenkai, L.:
+Y.Jia, C.Yue, D.Xinshu, S.Prateek, M.Jian and L.Zhenkai:
   Man-in-the-browser-cache: Persisting HTTPS attacks via browser cache
-  poisoning, {\em Computers and Security}, Vol.~55, pp.\ 62--80 (2015).
+  poisoning, {\em Computers and Security}, Vol.~55, Elsevier, pp.\ 62--80
+  (2015).
 
 \bibitem{security_modeling_and_analysis}
-Bau, J. and Mitchell, J.~C.: Security Modeling and Analysis, {\em IEEE
-  Symposium on Security and Privacy}, Vol.~9, pp.\ 18--25 (2011).
+J.Bau and J.C.Mitchell: Security Modeling and Analysis, {\em Proceedings of
+  IEEE Symposium on Security and Privacy}, Vol.~9, pp.\ 18--25 (2011).
 
 \bibitem{securing_frame_communication_in_browsers}
-Barth, A., Jackson, C. and Mitchell, J.~C.: Securing Frame Communication in
-  Browsers, {\em Communications of the ACM}, Vol.~52, pp.\ 83--91 (2009).
-
-\bibitem{specifying_and_verifying_hardware_for}
-Lie, D., Mitchell, J., Thekkath, C.~A. and Horowitz, M.: Specifying and
-  Verifying Hardware for Tamper-Resistant Software, {\em Security and Privacy},
-  pp.\ 166--177 (2003).
-
-\bibitem{TFFWS27}
-Bhargavan, K., Fournet, C. and Gordon, A.~D.: Verified reference
-  implementations of WS-Security protocols, {\em Lecture Notes in Computer
-  Science}, Vol.~4184, pp.\ 88--106 (2006).
-
-\bibitem{TFFWS28}
-Gordon, A.~D. and Pucella, R.: Validating a web service security abstraction by
-  typing, {\em Formal Aspects of Computing}, Vol.~17, pp.\ 277--318 (2005).
-
-\bibitem{sel4_formal_verification_of_an}
-Klein, G., Elphinstone, K., Heiser, G., Andronick, J., Cock, D., Derrin, P.,
-  Elkaduwe, D., Engelhardt, K., Kolanski, R., Norrish, M., Sewell, T., Tuch, H.
-  and Winwood, S.: seL4: Formal Verification of an OS Kernel, {\em Symposium on
-  Operating Systems Principles}, pp.\ 207--220 (2009).
-
-\bibitem{towards_formal_analysis_of_the}
-Shin, W., Kiyomoto, S., Fukushima, K. and Tanaka, T.: Towards Formal Analysis
-  of the Permission-Based Security Model for Android, {\em International
-  Conference on Wireless and Mobile Communications}, pp.\ 87--92 (2009).
+A.Barth, C.Jackson and J.C.Mitchell: Securing Frame Communication in Browsers,
+  {\em Communications of the ACM}, Vol.~52, pp.\ 83--91 (2009).
 
 \bibitem{TFFWS17}
-Mitchell, J.~C., Mitchell, M. and Stern, U.: Automated analysis of
-  cryptographic protocols using Mur$\varphi$, {\em IEEE Symposium on Security
+J.C.Mitchell, M.Mitchell and U.Stern: Automated analysis of cryptographic
+  protocols using Mur$\varphi$, {\em Proceedings of IEEE Symposium on Security
   and Privacy}, pp.\ 141--151 (1997).
 
 \bibitem{TFFWS18}
-Mitchell, J.~C., Shmatikov, V. and Stern, U.: Finite-State Analysis of SSL
-  3.0., {\em USENIX Security Symposium} (1998).
+J.C.Mitchell, V.Shmatikov and U.Stern: Finite-State Analysis of SSL 3.0., {\em
+  Proceedings of USENIX Security Symposium} (1998).
 
 \bibitem{TFFWS19}
-Roscoe, A.~W.: Modelling and verifying key-exchange protocols using CSP and
-  FDR, {\em IEEE Computer Security Foundations Symposium}, pp.\ 98--107 (1995).
+A.W.Roscoe: Modelling and verifying key-exchange protocols using CSP and FDR,
+  {\em Proceedings of IEEE Computer Security Foundations Symposium}, pp.\
+  98--107 (1995).
 
 \bibitem{TFFWS20}
-Song, D.~X.: Athena: a new efficient automatic checker for security protocol
-  analysis, {\em IEEE Computer Security Foundations Symposium}, pp.\ 192--202
-  (1999).
+D.X.Song: Athena: a new efficient automatic checker for security protocol
+  analysis, {\em Proceedings of IEEE Computer Security Foundations Symposium},
+  pp.\ 192--202 (1999).
+
+\bibitem{finding_security_bugs_in_web}
+J.P.Near and D.Jackson: Finding Security Bugs in Web Applications using a
+  Catalog of Access Control Patterns, {\em Proceedings of IEEE International
+  Conference on Software Engineering}, pp.\ 947--958 (2016).
+
+\bibitem{TFFWS27}
+K.Bhargavan, C.Fournet and A.D.Gordon: Verified reference implementations of
+  WS-Security protocols, {\em Web Services and Formal Methods}, Lecture Notes
+  in Computer Science, Vol.~4184, Springer-Verlag, pp.\ 88--106 (2006).
+
+\bibitem{TFFWS28}
+A.D.Gordon and R.Pucella: Validating a web service security abstraction by
+  typing, {\em Formal Aspects of Computing}, Vol.~17, Springer, pp.\ 277--318
+  (2005).
+
+\bibitem{specifying_and_verifying_hardware_for}
+D.Lie, J.Mitchell, C.A.Thekkath and M.Horowitz: Specifying and Verifying
+  Hardware for Tamper-Resistant Software, {\em Proceedings of IEEE Symposium on
+  Security and Privacy}, pp.\ 166--177 (2003).
+
+\bibitem{sel4_formal_verification_of_an}
+G.Klein, K.Elphinstone, G.Heiser, J.Andronick, D.Cock, P.Derrin, D.Elkaduwe,
+  K.Engelhardt, R.Kolanski, M.Norrish, T.Sewell, H.Tuch and S.Winwood: seL4:
+  Formal Verification of an OS Kernel, {\em Proceedings of ACM on Operating
+  Systems Principles}, pp.\ 207--220 (2009).
+
+\bibitem{towards_formal_analysis_of_the}
+W.Shin, S.Kiyomoto, K.Fukushima and T.Tanaka: Towards Formal Analysis of the
+  Permission-Based Security Model for Android, {\em Proceedings of
+  International Conference on Wireless and Mobile Communications}, IEEE, pp.\
+  87--92 (2009).
 
 \bibitem{rfc6797}
-Hodges, J., Jackson, C. and Barth, A.: {HTTP Strict Transport Security (HSTS)},
-  {\em Request for Comments}, No.~6797, (online),
+J.Hodges, C.Jackson and A.Barth: {HTTP Strict Transport Security (HSTS)}, {\em
+  Request for Comments}, No.~6797, (online),
   \urle{http://www.ietf.org/rfc/rfc6797.txt} (2012).
 
 \bibitem{rfc7469}
-Evans, C., Palmer, C. and Sleevi, R.: {Public Key Pinning Extension for HTTP},
-  {\em Request for Comments}, No.~7469, (online),
+C.Evans, C.Palmer and R.Sleevi: {Public Key Pinning Extension for HTTP}, {\em
+  Request for Comments}, No.~7469, (online),
   \urle{http://www.ietf.org/rfc/rfc7469.txt} (2015).
 
 \end{thebibliography}
